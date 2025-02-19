@@ -9,12 +9,10 @@ model_name = "gpt2"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
-# Text generation pipeline
-generator = pipeline("text-generation", model=model, tokenizer=tokenizer)
+# # Text generation pipeline
+# generator = pipeline("text-generation", model=model, tokenizer=tokenizer)
 
-# Generate a funny joke
-response = generator("Tell me a funny joke about cats:", max_length=50, num_return_sequences=1)
-print(response[0]['generated_text'])
+
 
 
 def load_jokes_dataset(word):
@@ -32,7 +30,7 @@ def load_jokes_dataset(word):
 
 
 
-with gr.Blocks(css=".button-custom {background-color: #FF5733; color: white; font-size: 18px; border-radius: 12px; padding: 12px 20px; border: none; cursor: pointer;}") as demo:
+with gr.Blocks(css=".button-custom {background-color: #FF5733; color: orange; font-size: 18px; border-radius: 12px; padding: 12px 20px; border: none; cursor: pointer;}") as demo:
     gr.Markdown("**Dad Joke Generator**")
     gr.Markdown("just type a word and ill make a dad joke out of it")
     word_input = gr.Textbox(label="Enter a word")
